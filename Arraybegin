@@ -1,0 +1,20 @@
+#include <stdio.h>
+int main() {
+    int num[6]; 
+    int size = 5;   
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &num[i]);
+    }
+    int NE;
+    scanf("%d", &NE); 
+    for (int i = size; i > 0; i--) {
+        num[i] = num[i - 1];
+    }
+    num[0] = NE; 
+    size++;
+    printf("DISPLAY\n");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", num[i]);
+    }
+    return 0;
+}
