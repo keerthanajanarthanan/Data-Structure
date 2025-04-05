@@ -1,0 +1,45 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String [] args)
+    {
+        Scanner scanner=new Scanner(System.in);
+        System.out.print("enter a num:");
+        int n=scanner.nextInt();
+        int[] list=new int[n];
+        System.out.print("elements:");
+        for(int i=0;i< n;i++)
+        {
+            list[i]=scanner.nextInt();
+        }
+        if(n==0)
+        {
+            System.out.print("list is empty");
+            scanner.close();
+            return;
+        }
+        int mostfreq=list[0];
+        int maxcount=1;
+        for(int i=0;i< n;i++)
+        {
+            int currentelem=list[i];
+            int currentcount=0;
+            for(int j=0;j<n;j++)
+            {
+                if(list[j]==currentelem)
+                {
+                    currentcount++;
+                }
+            }
+            if(currentcount> maxcount)
+            {
+                maxcount=currentcount;
+                mostfreq=currentelem;
+            }
+        }
+        System.out.println("mf:"+mostfreq);
+        System.out.println("count:"+maxcount);
+        scanner.close();
+    }
+    
+}
+
