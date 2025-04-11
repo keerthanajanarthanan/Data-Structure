@@ -1,0 +1,96 @@
+import java.util.Scanner;
+public class Main {
+
+    static class Node {
+        int data;
+        Node next;
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+    Node head = null;
+
+    public void addNode(int data) {
+        Node newNode = new Node(data);
+
+        if (head == null) {
+            head = newNode;  
+        } else {
+            Node temp = head;
+
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+
+            temp.next = newNode;
+        }
+    }
+    public void Insert(int data)
+    {
+        Node newNode=new Node(data);
+        newNode.next=head;
+        head=newNode;
+    }
+    public void end(int data)
+    {
+        Node newNode =new Node(data);
+        
+        if(head == null)
+        {
+            head=newNode;
+        }
+        else{
+            Node temp=head;
+            while(temp.next != null)
+            {
+                 temp = temp.next;
+                
+            }
+            temp.next=newNode;
+        }
+    }
+    public void display() {
+        Node temp = head;
+
+        if (head == null) {
+            System.out.println("List is empty.");
+            return;
+        }
+
+        System.out.print("Linked List: ");
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+
+        System.out.println();
+    }
+    public static void main(String[] args) {
+        Main list = new Main ();
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            System.out.print("Enter data " + i + ": ");
+            int value = scanner.nextInt();
+            list.addNode(value);
+        }
+
+        list.display();
+        System.out.println("Enter a character to insert at beginning:");
+        System.out.print("insert at end:");
+        int M=scanner.nextInt();
+        int E=scanner.nextInt();
+        list.Insert(M);
+        list.end(E);
+        list.display();
+    }
+}
+
+
+
+
+
+
+
